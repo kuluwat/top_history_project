@@ -1,0 +1,233 @@
+ function set_chartgauge_overall(data_values, data_texts) {
+                // Set paths
+                // ------------------------------ 
+                var myChart = echarts.init(document.getElementById('chartdonut_overall'));
+
+
+                // Chart Options
+                // ------------------------------
+                options = {
+                    chart:
+                    {
+                        width: 360
+                    },
+                    // Enable drag recalculate
+                    //calculable: false,
+                    //title: [{
+                    //    show: true,
+                    //    namezz: 'normal',
+                    //    text: ['{a|}'],
+                    //    textStyle: {
+                    //        fontSize: 24,
+                    //        color: "#16D39A",
+                    //        fontFamily: 'Montserrat',
+                    //        rich: {
+                    //            a: {
+                    //                height: 50,
+                    //                color: 'black',
+                    //                lineHeight: 10,
+                    //                fontSize: 24,
+                    //                backgroundColor: {
+                    //                    //image: 'https://image.flaticon.com/icons/svg/927/927557.svg'//center
+                    //                    image: 'images/feelings.png"'//center
+                    //                },
+                    //            },
+
+                    //        }
+                    //    },
+                    //    y: '20%',
+                    //    left: 'center'
+                    //}, {
+                    //    namezz: 'bad',
+                    //    text: ['{a|}'],
+                    //    textStyle: {
+                    //        fontSize: 24,
+                    //        color: "#16D39A",
+                    //        fontFamily: 'Montserrat',
+                    //        rich: {
+                    //            a: {
+                    //                height: 50,
+                    //                color: 'black',
+                    //                lineHeight: 10,
+                    //                fontSize: 24,
+                    //                backgroundColor: {
+                    //                    //image: 'https://image.flaticon.com/icons/svg/927/927561.svg'
+                    //                    image: 'images/sad.png'
+                    //                },
+                    //            },
+                    //        }
+                    //    },
+                    //    y: '60%',
+                    //    //x: '10%',
+                    //    left: '9%',
+                    //},
+                    //{
+                    //    namezz: 'good',
+                    //    text: ['{a|}'],
+                    //    textStyle: {
+                    //        fontSize: 24,
+                    //        color: "#16D39A",
+                    //        fontFamily: 'Montserrat',
+
+
+                    //        rich: {
+                    //            a: {
+                    //                height: 50,
+                    //                color: 'black',
+                    //                lineHeight: 10,
+                    //                fontSize: 24,
+                    //                backgroundColor: {
+                    //                    image: 'https://image.flaticon.com/icons/svg/927/927566.svg'
+                    //                    //image: 'images/surprised.png'
+                    //                },
+                    //            },
+
+
+                    //        }
+                    //    },
+                    //    y: '60%',
+                    //    //x: '25%',
+                    //    left: '75%',
+                    //},
+                    //{
+
+                    //    show: false,
+                    //    namezz: 'point_start',
+                    //    text: ['2,291.5'],
+                    //    textStyle: {
+                    //        fontSize: 14,
+                    //        color: "#16D39A",
+                    //        fontFamily: 'Montserrat',
+                    //    },
+                    //    y: '90%',
+                    //    x: '10%',
+                    //}
+                    //],
+
+                    // Add series
+                    series: [
+                        {
+                            //name: 'Score',
+                            type: 'gauge',
+                            startAngle: 180,
+                            endAngle: 0,
+
+                            center: ['50%', '90%'],    // Default global center
+                            radius: 170,
+                            axisLine: {
+                                // Coordinate axis
+                                //lineStyle: {       // Attribute lineStyle control line style
+                                //    color: [[0.199, '#FF5768'], [0.399, '#FFBF65'], [0.599, '#7BC5AE'], [0.799, '#11c989'], [0.999, '#1b78d3']],
+
+                                //    width: 50
+                                //}
+                                lineStyle: {
+                                    width: 80,
+                                    shadowBlur: 5,
+                                   
+
+                                        color: [[0.199, '#FF5768'], [0.399, '#FFBF65'], [0.599, '#7BC5AE'], [0.799, '#11c989'], [0.999, '#1b78d3']],
+                                 
+                                }
+                            },
+                            splitLine: {
+                                show: false,
+                                length: 8,
+                                //lineStyle: {
+                                //    color: 'auto'
+                                //}
+                            },
+                            axisTick: {
+                                show: false,// Axis markers
+                                //splitNumber: 5,   // How many segments each split segment
+                                splitNumber: 5,   // How many segments each split segment
+                                length: 4,
+                                //length: 12,        // Attribute length Control line length
+                            },
+                            axisLabel: {
+
+                                // Axis text labels, see axis.axisLabel
+                                formatter: function (v) {
+                                    if (v == 0) {
+                                        v = '0';
+                                    } else if (v == 100) {
+                                        v = '100';
+                                    }
+                                    return '';
+                                },
+                                rich: {
+                                    a: {
+                                        height: 50,
+                                        color: 'black',
+                                        lineHeight: 10,
+                                        fontSize: 24,
+                                        backgroundColor: {
+                                            image: 'https://image.flaticon.com/icons/svg/927/927561.svg'
+                                        },
+                                    },
+
+                                },
+                            },
+
+                            pointer: {
+                                width: 20,
+                                length: '68%',
+                                length: '80%',
+                                show: true,
+                            },
+                            itemStyle: {
+                                show: true,
+                                normal: {
+                                    //color: "rgba(255, 255, 255, 0.2)",
+                                    color: "#FFFFFF",
+                                    shadowBlur: 0
+                                }
+                            },
+                            detail: {
+                                show: true,
+                                backgroundColor: 'rgba(0,0,0,0)',
+                                borderWidth: 0,
+                                borderColor: '#ccc',
+                                width: 100,
+                                height: 40,
+                                offsetCenter: [0, -30],       // x, y，Unit px
+
+                                textStyle: {       // The remaining properties using the global default text style, see TEXTSTYLE
+                                    fontSize: 50,
+                                    fontFamily: 'Montserrat'
+
+                                },
+                                formatter: '{value}%'
+                            },
+
+
+                            data: [{ value: data_values, name: data_texts }]
+
+                        }
+                    ]
+                };
+
+
+                myChart.setOption(options, true);
+
+                // Resize chart
+                // ------------------------------
+
+                $(function () {
+
+                    // Resize chart on menu width change and window resize
+                    $(window).on('resize', resize);
+                    //$(".menu-toggle").on('click', resize);
+
+                    // Resize function
+                    function resize() {
+                        setTimeout(function () {
+
+                            // Resize chart
+                            //myChart.resize();
+                        }, 200);
+                    }
+
+                });
+
+            }
